@@ -1,4 +1,7 @@
+import { config } from "dotenv";
 import { useEffect, useState } from "react";
+
+config();
 
 interface pasteBin {
   id: number;
@@ -7,12 +10,14 @@ interface pasteBin {
   creation_date: string;
 }
 
+const apiBaseURL = process.env.REACT_APP_API_BASE;
+
 function App(): JSX.Element {
   const [pastebinState, setPastebinState] = useState<pasteBin[]>([]);
 
   useEffect(() => {
     const loadData = async () => {
-      const resp = await fetch("http://localhost:4000/");
+      const resp = await fetch(`${apiBaseURL}`);
       const jsonBody = await resp.json();
       setPastebinState(jsonBody);
     };
