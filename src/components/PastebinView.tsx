@@ -8,7 +8,7 @@ interface PastebinViewProps {
 function PastebinView(props: PastebinViewProps): JSX.Element {
   return (
     <>
-      <h2>Most recent pastes</h2>
+      <h2>Most recent pastebins</h2>
       <div>
         {props.allPastebins.map((pastebin) => (
           <SinglePastebin onePastebin={pastebin} key={pastebin.id} />
