@@ -17,9 +17,9 @@ function App(): JSX.Element {
 
   useEffect(() => {
     const loadData = async () => {
-      const resp = await fetch(`${apiBaseURL}`);
+      const resp = await fetch(`${apiBaseURL}pastes`);
       const jsonBody = await resp.json();
-      setAllPastebins(jsonBody);
+      setAllPastebins(jsonBody.data);
     };
     loadData();
   }, [allPastebins]);
