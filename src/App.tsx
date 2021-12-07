@@ -13,17 +13,17 @@ interface pasteBin {
 const apiBaseURL = process.env.REACT_APP_API_BASE;
 
 function App(): JSX.Element {
-  const [pastebinState, setPastebinState] = useState<pasteBin[]>([]);
+  const [allPastebins, setAllPastebins] = useState<pasteBin[]>([]);
 
   useEffect(() => {
     const loadData = async () => {
       const resp = await fetch(`${apiBaseURL}`);
       const jsonBody = await resp.json();
-      setPastebinState(jsonBody);
+      setAllPastebins(jsonBody);
     };
     loadData();
-  }, [pastebinState]);
+  }, [allPastebins]);
 
-  return <>{pastebinState.map((item) => item.input)}</>;
+  return <>{allPastebins.map((item) => item.input)}</>;
 }
 export default App;
