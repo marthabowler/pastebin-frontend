@@ -10,7 +10,7 @@ function SinglePastebin(props: SinglePastebinProps): JSX.Element {
       <h3>{props.onePastebin.title}</h3>
       <h3>{props.onePastebin.creation_date}</h3>
       <p>{props.onePastebin.input}</p>
-      <button>See more</button>
+      <button className="btn btn-warning">See more</button>
       <hr />
     </>
   );
