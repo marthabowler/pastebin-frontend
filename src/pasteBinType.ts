@@ -1,6 +1,6 @@
 export interface pasteBinType {
   id: number;
   input: string;
-  title?: string | undefined;
+  title?: string;
   creation_date: string;
 }
