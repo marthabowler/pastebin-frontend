@@ -1,19 +1,14 @@
 import { config } from "dotenv";
 import { useEffect, useState } from "react";
+import PastebinView from "./components/PastebinView";
+import { pasteBinType } from "./pasteBinType";
 
 config();
-
-interface pasteBin {
-  id: number;
-  input: string;
-  title?: string;
-  creation_date: string;
-}
 
 const apiBaseURL = process.env.REACT_APP_API_BASE;
 
 function App(): JSX.Element {
-  const [allPastebins, setAllPastebins] = useState<pasteBin[]>([]);
+  const [allPastebins, setAllPastebins] = useState<pasteBinType[]>([]);
 
   useEffect(() => {
     const loadData = async () => {
@@ -24,6 +19,11 @@ function App(): JSX.Element {
     loadData();
   }, [allPastebins]);
 
-  return <>{allPastebins.map((item) => item.input)}</>;
+  return (
+    <>
+      <h1>Martha and Linus' pastebin heaven</h1>
+      <PastebinView allPastebins={allPastebins} />
+    </>
+  );
 }
 export default App;
