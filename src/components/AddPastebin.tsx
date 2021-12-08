@@ -31,7 +31,9 @@ function AddPastebin(props: AddPastebinProps): JSX.Element {
           }}
         />
       </form>
-      <button onClick={props.handleAddPaste}>Submit your paste</button>
+      <button className="mb-4" onClick={props.handleAddPaste}>
+        Submit your paste
+      </button>
     </Fragment>
   );
 }
