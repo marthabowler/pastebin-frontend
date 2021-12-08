@@ -1,3 +1,19 @@
 .inputDiv {
   height: 400px;
+  width: 80%;
+}
+
+.text-truncate-container {
+  -webkit-line-clamp: 5;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.pastebin-view {
+  width: 80%;
+}
+
+.main {
+  margin: 20px;
 }
