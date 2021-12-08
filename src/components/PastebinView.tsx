@@ -9,7 +9,7 @@ function PastebinView(props: PastebinViewProps): JSX.Element {
   return (
     <>
       <h2>Most recent pastes</h2>
-      <div>
+      <div className="pastebin-view">
         {props.allPastebins.map((pastebin) => (
           <SinglePastebin onePastebin={pastebin} key={pastebin.id} />
         ))}

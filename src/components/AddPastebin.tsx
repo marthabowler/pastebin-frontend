@@ -14,7 +14,7 @@ function AddPastebin(props: AddPastebinProps): JSX.Element {
       <br />
       <form className="inputDiv ml-20">
         <input
-          className="form-control w-75"
+          className="form-control w-100"
           placeholder="Title (optional)"
           value={props.newTitle}
           onChange={(e) => {
@@ -23,7 +23,7 @@ function AddPastebin(props: AddPastebinProps): JSX.Element {
         />
         <br />
         <input
-          className="form-control h-75 w-75"
+          className="form-control h-75 w-100"
           placeholder="Paste your paste!!"
           value={props.newInput}
           onChange={(e) => {

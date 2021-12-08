@@ -34,7 +34,7 @@ function App(): JSX.Element {
   }, [allPastebins]);
 
   return (
-    <>
+    <div className="main">
       <h1>Martha and Linus' pastebin heaven</h1>
       <AddPastebin
         newInput={newInput}
@@ -44,7 +44,7 @@ function App(): JSX.Element {
         handleAddPaste={handleAddPaste}
       />
       <PastebinView allPastebins={allPastebins} />
-    </>
+    </div>
   );
 }
 export default App;
