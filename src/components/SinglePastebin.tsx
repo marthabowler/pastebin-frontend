@@ -11,7 +11,11 @@ function SinglePastebin(props: SinglePastebinProps): JSX.Element {
   return (
     <>
       <h3>{props.onePastebin.title}</h3>
-      <h3>{props.onePastebin.creation_date}</h3>
+      <h6>
+        {props.onePastebin.creation_date
+          .replace("T", ", ")
+          .slice(0, props.onePastebin.creation_date.length - 7)}
+      </h6>
       <p className={expand ? "" : "text-truncate-container"}>
         {props.onePastebin.input}
       </p>
