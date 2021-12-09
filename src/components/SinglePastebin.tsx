@@ -8,6 +8,9 @@ interface SinglePastebinProps {
 function SinglePastebin(props: SinglePastebinProps): JSX.Element {
   const [expand, setExpand] = useState(false);
 
+  function checkLines(input: string) {
+    if (input.split("\n").length > 5) return true;
+  }
   return (
     <>
       <h3>{props.onePastebin.title}</h3>
@@ -16,12 +19,16 @@ function SinglePastebin(props: SinglePastebinProps): JSX.Element {
           .replace("T", ", ")
           .slice(0, props.onePastebin.creation_date.length - 7)}
       </h6>
-      <p id="input" className={expand ? "" : "text-truncate-container"}>
+      <pre id="input" className={expand ? "" : "text-truncate-container"}>
         {props.onePastebin.input}
-      </p>
-      <button onClick={() => setExpand(!expand)} className="btn btn-warning">
-        {expand ? "See less" : "See more"}
-      </button>
+      </pre>
+      {checkLines(props.onePastebin.input) ? (
+        <button onClick={() => setExpand(!expand)} className="btn btn-warning">
+          {expand ? "See less" : "See more"}
+        </button>
+      ) : (
+        ""
+      )}
       <hr />
     </>
   );

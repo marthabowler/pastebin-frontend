@@ -23,6 +23,7 @@ function App(): JSX.Element {
     if (body.input) {
       if (body.title.length <= 50) {
         await axios.post(`${apiBaseURL}pastes`, body);
+        console.log(body.input.split("\n"));
       } else alert("Title too long");
     } else {
       if (body.title.length > 50) {
