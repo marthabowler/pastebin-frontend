@@ -20,7 +20,16 @@ function App(): JSX.Element {
       title: newTitle,
       input: newInput,
     };
-    await axios.post(`${apiBaseURL}pastes`, body);
+    if (body.input) {
+      if (body.title.length <= 50) {
+        await axios.post(`${apiBaseURL}pastes`, body);
+      } else alert("Title too long");
+    } else {
+      if (body.title.length > 50) {
+        alert("Title too long");
+      }
+      alert("Can't submit an empty paste!");
+    }
     setNewInput("");
     setNewTitle("");
   }
