@@ -20,8 +20,9 @@ function App(): JSX.Element {
       title: newTitle,
       input: newInput,
     };
-    const resp = await axios.post(`${apiBaseURL}pastes`, body);
-    console.log("Added successfully", resp);
+    await axios.post(`${apiBaseURL}pastes`, body);
+    setNewInput("");
+    setNewTitle("");
   }
 
   useEffect(() => {
