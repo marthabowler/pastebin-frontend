@@ -16,7 +16,7 @@ function SinglePastebin(props: SinglePastebinProps): JSX.Element {
           .replace("T", ", ")
           .slice(0, props.onePastebin.creation_date.length - 7)}
       </h6>
-      <p className={expand ? "" : "text-truncate-container"}>
+      <p id="input" className={expand ? "" : "text-truncate-container"}>
         {props.onePastebin.input}
       </p>
       <button onClick={() => setExpand(!expand)} className="btn btn-warning">

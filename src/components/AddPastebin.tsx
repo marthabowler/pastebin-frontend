@@ -22,8 +22,8 @@ function AddPastebin(props: AddPastebinProps): JSX.Element {
           }}
         />
         <br />
-        <input
-          className="form-control h-75 w-100"
+        <textarea
+          className="form-control h-75"
           placeholder="Paste your paste!!"
           value={props.newInput}
           onChange={(e) => {
@@ -31,7 +31,7 @@ function AddPastebin(props: AddPastebinProps): JSX.Element {
           }}
         />
       </form>
-      <button className="mb-4" onClick={props.handleAddPaste}>
+      <button className="mb-4 btn btn-info" onClick={props.handleAddPaste}>
         Submit your paste
       </button>
     </Fragment>
