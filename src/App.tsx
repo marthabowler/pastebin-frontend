@@ -14,6 +14,7 @@ function App(): JSX.Element {
   const [allPastebins, setAllPastebins] = useState<pasteBinType[]>([]);
   const [newTitle, setNewTitle] = useState("");
   const [newInput, setNewInput] = useState("");
+  const [reload, setReload] = useState(false);
 
   async function handleAddPaste() {
     const body = {
@@ -23,7 +24,6 @@ function App(): JSX.Element {
     if (body.input) {
       if (body.title.length <= 50) {
         await axios.post(`${apiBaseURL}pastes`, body);
-        console.log(body.input.split("\n"));
       } else alert("Title too long");
     } else {
       if (body.title.length > 50) {
@@ -33,6 +33,7 @@ function App(): JSX.Element {
     }
     setNewInput("");
     setNewTitle("");
+    setReload(true);
   }
 
   useEffect(() => {
@@ -40,9 +41,11 @@ function App(): JSX.Element {
       const resp = await fetch(`${apiBaseURL}pastes`);
       const jsonBody = await resp.json();
       setAllPastebins(jsonBody.data);
+      setReload(false);
+      console.log("called");
     };
     loadData();
-  }, [allPastebins]);
+  }, [reload]);
 
   return (
     <div className="main">
